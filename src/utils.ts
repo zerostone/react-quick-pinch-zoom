@@ -1,7 +1,7 @@
 import { UpdateAction } from "./PinchZoom/types";
 
-export const isTouch = () =>
-  "ontouchstart" in window || navigator.maxTouchPoints > 0;
+export const isTouch = () => typeof window !== 'undefined' &&
+  ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
 export const make2dTransformValue = ({ x, y, scale }: UpdateAction) =>
   `scale(${scale}) translate(${x}px, ${y}px)`;

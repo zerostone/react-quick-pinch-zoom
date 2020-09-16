@@ -1,5 +1,5 @@
 {
-  "name": "react-quick-pinch-zoom",
+  "name": "react-quick-pinch-zoom-ssr",
   "version": "3.0.0",
   "main": "cmj/index.js",
   "module": "esm/index.js",

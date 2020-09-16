@@ -15,7 +15,7 @@ const classnames = (base: string, other?: string): string =>
 
 const { abs, max, min, sqrt } = Math;
 
-const isMac = /(Mac)/i.test(navigator.platform);
+const isMac = typeof navigator !== 'undefined' && /(Mac)/i.test(navigator.platform);
 
 const isDragInteraction = (i: Interaction | null): boolean => i === "drag";
 
@@ -102,11 +102,11 @@ const calculateVelocity = (startPoint: Point, endPoint: Point): Point => ({
 
 const comparePoints = (p1: Point, p2: Point) => p1.x === p2.x && p1.y === p2.y;
 
-const noup = () => {};
+const noup = () => { };
 
 const zeroPoint = { x: 0, y: 0 };
 
-const document = window.document;
+const document = typeof window !== 'undefined' ? window.document : { documentElement: null, body: null };
 
 const { documentElement: _html, body: _body } = document;
 
@@ -600,7 +600,7 @@ class PinchZoom extends React.Component<RequiredProps & DefaultProps> {
     const startTime = new Date().getTime();
     const { timeFn, callback, duration } = {
       timeFn: swing,
-      callback: () => {},
+      callback: () => { },
       duration: this.props.animationDuration,
       ...options
     };
@@ -922,12 +922,12 @@ class PinchZoom extends React.Component<RequiredProps & DefaultProps> {
   _handlers: Array<
     [string, () => void, Document | undefined]
   > = this.props.isTouch()
-    ? [
+      ? [
         ["touchstart", this._handlerOnTouchStart],
         ["touchend", this._handlerOnTouchEnd],
         ["touchmove", this._handlerOnTouchMove]
       ]
-    : [
+      : [
         ["mousemove", this.simulate(this._handlerOnTouchMove), document],
         ["mouseup", this.simulate(this._handlerOnTouchEnd), document],
         ["mousedown", this.simulate(this._handlerOnTouchStart)],

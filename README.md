@@ -1,4 +1,7 @@
-# react-quick-pinch-zoom
+# react-quick-pinch-zoom-ssr
+
+This repo is forked from `react-quick-pinch-zoom`, just added some extra code to make it workable on server side.
+
 
 [![react-quick-pinch-zoom on npm](https://img.shields.io/npm/v/react-quick-pinch-zoom.svg)](https://www.npmjs.com/package/react-quick-pinch-zoom)
 [![npm downloads](https://img.shields.io/npm/dm/react-quick-pinch-zoom.svg)](https://www.npmtrends.com/react-quick-pinch-zoom)
